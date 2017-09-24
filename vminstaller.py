@@ -21,24 +21,13 @@ def __installer__ (distro):
         command = "virt-install --name {0} --ram {1} " \
                   "--vcpus {2} --cdrom {3} --os-type linux " \
                   " --os-variant ubuntu16.04 --graphics " \
-                  "vnc,listen=192.154.110.66 --hvm --virt-type kvm " \
+                  "vnc,listen=192.168.1.10 --hvm --virt-type kvm " \
                   "--disk path={4},size={5} --noautoconsole --livecd " \
                   " --network network=ovs-vmbr3,model=e1000".format(*Type)
-        command = shlex.split(command)
-        p = subprocess.Popen(command)
-    elif distro == "bsd":
-        Type = __distro__()
-        command = "virt-install --name {0} --ram {1} " \
-                  "--vcpus {2} --cdrom {3} --os-type linux " \
-                  " --os-variant ubuntu16.04 --graphics " \
-                  "vnc,listen=192.154.110.67 --hvm --virt-type kvm " \
-                  "--disk path={4},size={5} --noautoconsole --livecd " \
-                  " --network network=kvm-external-sw,model=e1000".format(*Type)
         command = shlex.split(command)
         p = subprocess.Popen(command)
     else:
         print("Please define a distro")
         exit()
-
 argv
 __installer__(argv[1])
