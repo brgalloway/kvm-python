@@ -26,7 +26,7 @@ for i in hostnames:
   read_file = open(cert_file, 'r')
   cert_output_file.write(f"{i}: \n")
   for line in read_file:
-    if "allstar" in line:
+    if "wildcard" in line:
       cert_output_file.writelines(f"  - {line}")
 
 for i in hostnames:
@@ -34,7 +34,7 @@ for i in hostnames:
   read_file = open(pem_file, 'r')
   pem_output_file.write(f"{i}: \n")
   for line in read_file:
-    if "allstar" in line:
+    if "wildcard" in line:
       pem_output_file.writelines(f"  - {line}")
 
 for i in hostnames:
@@ -44,6 +44,6 @@ for i in hostnames:
     read_file = open(key_file, 'r')
     key_output_file.write(f"{i}: \n")
     for line in read_file:
-      if "allstar" in line:
+      if "wildcard" in line:
         key_output_file.writelines(f"  - {line}")
 
