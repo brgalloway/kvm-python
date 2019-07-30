@@ -1,13 +1,11 @@
-```
-Python script to take data returned from Ansible and extract
-relevant data and combine into two var files for ansible
-```
 import subprocess as sp
+from pathlib import Path
 
 cert_file = []
 pem_file = []
 cert_output_file = open("./cert_parse.txt", 'w')
 pem_output_file = open("./pem_parse.txt", 'w')
+key_output_file = open("./key_parse.txt", 'w')
 
 # Generate list based on directory names
 def generate_file_list(path):
@@ -28,7 +26,7 @@ for i in hostnames:
   read_file = open(cert_file, 'r')
   cert_output_file.write(f"{i}: \n")
   for line in read_file:
-    if "wildcard" in line:
+    if "allstar" in line:
       cert_output_file.writelines(f"  - {line}")
 
 for i in hostnames:
@@ -36,5 +34,16 @@ for i in hostnames:
   read_file = open(pem_file, 'r')
   pem_output_file.write(f"{i}: \n")
   for line in read_file:
-    if "wildcard" in line:
+    if "allstar" in line:
       pem_output_file.writelines(f"  - {line}")
+
+for i in hostnames:
+  key_file_verify =  Path(f"/opt/ansible/wildcard_find/certs/{i}/var/tmp/{i}_search_key.txt")
+  key_file = f"/opt/ansible/wildcard_find/certs/{i}/var/tmp/{i}_search_key.txt"
+  if key_file_verify.is_file():
+    read_file = open(key_file, 'r')
+    key_output_file.write(f"{i}: \n")
+    for line in read_file:
+      if "allstar" in line:
+        key_output_file.writelines(f"  - {line}")
+
