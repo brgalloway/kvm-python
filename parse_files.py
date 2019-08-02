@@ -22,7 +22,7 @@ class VarsFile:
         return self.hostname_list
 
     '''
-    Provide the method with a output_filename
+    Provide the method with an output_filename
     Filetype will be a variable for cert, key, or pem
     Search word for interesting string to match on
     '''
