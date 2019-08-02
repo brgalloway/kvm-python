@@ -24,6 +24,9 @@ class VarsFile:
     Search word for interesting string to match on
     '''
     def output_file(self, output_filename, filetype, searchword):
+        #TODO edit file paths to make class more dynamic
+        # use **args or **kwargs to allow the ability to search 
+        # on multiple strings
         self.filetype = filetype
         self.output_filename = open(output_filename, 'w')
 
@@ -36,3 +39,12 @@ class VarsFile:
               for line in self.read_file:
                   if searchword in line:
                       self.output_filename.writelines(f"  - {line}")
+
+                    
+# EXAMPLE:
+# varsfile = VarsFile()
+
+# varsfile.generate_hostname_list("/opt/ansible/wildcard_find/certs")
+# varsfile.output_file("cert_file.txt", "cert", "wildcard")
+# varsfile.output_file("pem_file.txt", "pem", "wildcard")
+# varsfile.output_file("key_file.txt", "key", "wildcard")
