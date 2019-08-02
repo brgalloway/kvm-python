@@ -1,10 +1,13 @@
-import subprocess as sp
-from pathlib import Path
+#!/usr/bin/python3.6
 
 import subprocess as sp
 from pathlib import Path
 
 class VarsFile:
+    '''
+    Class that creates yaml formatted files to use as 
+    ansible vars or to use as with_item loops to iterate over 
+    '''
     def __init__(self):
         self.hostname_list = []
 
