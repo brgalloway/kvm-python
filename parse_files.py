@@ -32,6 +32,7 @@ class VarsFile:
             self.input_filename = f"{self.path}/{i}/var/tmp/{i}_search_{filetype}.txt"
             self.read_file = open(self.input_filename, 'r')
             self.output_filename.write(f"{i}: \n")
-            for line in self.read_file:
-                if searchword in line:
-                    self.output_filename.writelines(f"  - {line}")
+            if file_verify.is_file():
+              for line in self.read_file:
+                  if searchword in line:
+                      self.output_filename.writelines(f"  - {line}")
