@@ -28,7 +28,7 @@ class VarsFile:
     '''
     def output_file(self, output_filename, filetype, searchword):
         #TODO edit file paths to make class more dynamic
-        # use **args or **kwargs to allow the ability to search 
+        # use *args or **kwargs to allow the ability to search 
         # on multiple strings
         self.filetype = filetype
         self.output_filename = open(output_filename, 'w')
