@@ -1,2 +1,2 @@
-# Python script collection
+# Python code collection
 
