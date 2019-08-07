@@ -3,7 +3,7 @@ from sys import argv
 
 Type = [] 
 
-def __distro__():
+def distro():
     name = raw_input("New VM's name: ")
     ram = raw_input("RAM to assign: ")
     vcpus = raw_input("Number of CPUs: ")
@@ -14,10 +14,10 @@ def __distro__():
     Type = (name,ram,vcpus,cdrom,disk,size)
     return(Type)
 
-def __installer__ (distro):
+def installer(distro):
     distro = distro.lower()
     if distro == "ubuntu":
-        Type = __distro__()
+        Type = distro()
         command = "virt-install --name {0} --ram {1} " \
                   "--vcpus {2} --cdrom {3} --os-type linux " \
                   " --os-variant ubuntu16.04 --graphics " \
@@ -30,4 +30,4 @@ def __installer__ (distro):
         print("Please define a distro")
         exit()
 argv
-__installer__(argv[1])
+installer(argv[1])
