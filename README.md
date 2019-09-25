@@ -1,6 +1,7 @@
 # Python code collection
 
 nginx.conf
+```
 http {
     include       mime.types;
     default_type  application/octet-stream;
@@ -26,5 +27,6 @@ http {
           proxy_read_timeout 30;
       }
    }
+```
 httpd.conf
-SetEnvIfNoCase ^X-Forwarded-User$ "(.*)" REMOTE_USER=$1
+`SetEnvIfNoCase ^X-Forwarded-User$ "(.*)" REMOTE_USER=$1`
