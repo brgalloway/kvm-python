@@ -12,9 +12,9 @@ http {
 
   server {
       listen 443 default ssl;
-      server_name monitoring.allstardirectories.com;
-      ssl_certificate /etc/httpd/conf/ssl/monitoring-asd.crt;
-      ssl_certificate_key /etc/httpd/conf/ssl/monitoring-asd.key;
+      server_name monitoring.example.com;
+      ssl_certificate /etc/ssl/monitoring.crt;
+      ssl_certificate_key /etc/ssl/monitoring.key;
       add_header Strict-Transport-Security max-age=2592000;
 
       location / {
